@@ -169,3 +169,4 @@ mvn spring-boot:run -Dspring-boot.run.profiles=postgres
 - Comments, attachments, and activity history.
 - OpenAPI/Swagger documentation for the mobile, web, and desktop clients.
 # collaborative-task-manager-backend
+# collaborative-task-manager-backend
