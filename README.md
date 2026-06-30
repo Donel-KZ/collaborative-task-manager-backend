@@ -17,6 +17,8 @@ Spring Boot backend for a task manager/to-do app that supports individual projec
 ```text
 POST   /api/auth/register
 POST   /api/auth/login
+POST   /api/auth/forgot-password
+POST   /api/auth/reset-password
 
 GET    /api/users
 
@@ -111,6 +113,10 @@ Finish work:
 curl -X PATCH http://localhost:8080/api/deliverables/1/finish \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
+
+## Password reset
+
+Forgot-password requests return the same generic response whether or not the email exists. In local development, reset links are logged when no SMTP host is configured. By default links use the Android deep link `taskmanager://reset-password?token=...`; override `PASSWORD_RESET_URL` if you want web reset links instead.
 
 ## Running
 

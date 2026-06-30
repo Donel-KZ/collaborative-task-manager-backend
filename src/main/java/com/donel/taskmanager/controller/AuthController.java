@@ -1,8 +1,11 @@
 package com.donel.taskmanager.controller;
 
 import com.donel.taskmanager.dto.AuthResponse;
+import com.donel.taskmanager.dto.ForgotPasswordRequest;
 import com.donel.taskmanager.dto.LoginRequest;
+import com.donel.taskmanager.dto.MessageResponse;
 import com.donel.taskmanager.dto.RegisterRequest;
+import com.donel.taskmanager.dto.ResetPasswordRequest;
 import com.donel.taskmanager.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -29,7 +32,19 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public AuthResponse login(@Valid @RequestBody LoginRequest request) {
+    public AuthResponse login(@RequestBody LoginRequest request) {
         return authService.login(request);
+    }
+
+    @PostMapping("/forgot-password")
+    public MessageResponse forgotPassword(@Valid @RequestBody ForgotPasswordRequest request) {
+        authService.forgotPassword(request);
+        return new MessageResponse("If this email exists, a reset link has been sent.");
+    }
+
+    @PostMapping("/reset-password")
+    public MessageResponse resetPassword(@Valid @RequestBody ResetPasswordRequest request) {
+        authService.resetPassword(request);
+        return new MessageResponse("Password has been reset.");
     }
 }
