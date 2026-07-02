@@ -24,6 +24,8 @@ public class UserAccount {
     @Column(nullable = false)
     private String passwordHash;
 
+    private String profilePictureFilename;
+
     protected UserAccount() {
     }
 
@@ -59,5 +61,13 @@ public class UserAccount {
 
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
+    }
+
+    public String getProfilePictureFilename() {
+        return profilePictureFilename;
+    }
+
+    public void setProfilePictureFilename(String profilePictureFilename) {
+        this.profilePictureFilename = profilePictureFilename;
     }
 }
