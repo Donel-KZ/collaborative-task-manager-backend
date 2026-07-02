@@ -2,6 +2,7 @@ package com.donel.taskmanager.controller;
 
 import com.donel.taskmanager.dto.UserResponse;
 import com.donel.taskmanager.service.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -32,11 +33,17 @@ public class UserController {
         return userService.findCurrentUser(authentication.getName());
     }
 
-    @PatchMapping("/me/profile-picture")
+    @PatchMapping(
+            value = "/me/profile-picture",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public UserResponse updateProfilePicture(
             Authentication authentication,
             @RequestParam("file") MultipartFile file
     ) {
+        System.out.println("UPLOAD ENDPOINT HIT");
+        System.out.println(authentication);
+
         return userService.updateProfilePicture(authentication.getName(), file);
     }
 
