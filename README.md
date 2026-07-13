@@ -174,5 +174,8 @@ mvn spring-boot:run -Dspring-boot.run.profiles=postgres
 - Assigned users for deliverables and tasks.
 - Comments, attachments, and activity history.
 - OpenAPI/Swagger documentation for the mobile, web, and desktop clients.
-# collaborative-task-manager-backend
-# collaborative-task-manager-backend
+
+## Documentation
+
+Full API and configuration documentation is available in `API_DOCUMENTATION.md`.
+
